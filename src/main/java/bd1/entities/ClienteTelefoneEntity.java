@@ -1,5 +1,6 @@
 package bd1.entities;
 
+import enums.TipoTelefone;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,7 +15,7 @@ public class ClienteTelefoneEntity {
     private Integer idCliente;
     @Basic
     @Column(name = "tipo")
-    private Object tipo;
+    private TipoTelefone tipo;
     @Basic
     @Column(name = "ddd")
     private int ddd;
@@ -24,10 +25,6 @@ public class ClienteTelefoneEntity {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Integer getIdCliente() {
@@ -42,7 +39,7 @@ public class ClienteTelefoneEntity {
         return tipo;
     }
 
-    public void setTipo(Object tipo) {
+    public void setTipo(TipoTelefone tipo) {
         this.tipo = tipo;
     }
 

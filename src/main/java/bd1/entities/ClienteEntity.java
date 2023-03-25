@@ -20,16 +20,16 @@ public class ClienteEntity {
     @Basic
     @Column(name = "debitos")
     private BigDecimal debitos;
+
+    @Basic
+    @Column(name = "id_telefone")
+    private Integer idTelefone;
     @Basic
     @Column(name = "id_end")
     private Integer idEnd;
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -50,6 +50,14 @@ public class ClienteEntity {
 
     public BigDecimal getDebitos() {
         return debitos;
+    }
+
+    public Integer getIdTelefone() {
+        return idTelefone;
+    }
+
+    public void setIdTelefone(Integer idTelefone) {
+        this.idTelefone = idTelefone;
     }
 
     public void setDebitos(BigDecimal debitos) {

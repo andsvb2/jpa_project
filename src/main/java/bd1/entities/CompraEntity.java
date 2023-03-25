@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "compra", schema = "public", catalog = "bd1")
-public class CompraEntity {
+public class
+CompraEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -20,10 +21,6 @@ public class CompraEntity {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Integer getIdAtendimento() {
