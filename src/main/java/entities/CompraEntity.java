@@ -1,17 +1,22 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "compra", schema = "public", catalog = "bd1")
+@Table(name = "compra", schema = "public")
 public class
 CompraEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Basic
     @Column(name = "id_atendimento")
     private Integer idAtendimento;

@@ -1,18 +1,18 @@
-package bd1.entities;
+package entities;
 
 import enums.TipoTelefone;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cliente_telefone", schema = "public", catalog = "bd1")
-public class ClienteTelefoneEntity {
+@Table(name = "funcionario_telefone", schema = "public")
+public class FuncionarioTelefoneEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "id_cliente")
-    private Integer idCliente;
+    @Column(name = "id_funcionario")
+    private Integer idFuncionario;
     @Basic
     @Column(name = "tipo")
     private TipoTelefone tipo;
@@ -27,12 +27,16 @@ public class ClienteTelefoneEntity {
         return id;
     }
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public Integer getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
     public Object getTipo() {
@@ -64,12 +68,13 @@ public class ClienteTelefoneEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ClienteTelefoneEntity that = (ClienteTelefoneEntity) o;
+        FuncionarioTelefoneEntity that = (FuncionarioTelefoneEntity) o;
 
         if (id != that.id) return false;
         if (ddd != that.ddd) return false;
         if (telefone != that.telefone) return false;
-        if (idCliente != null ? !idCliente.equals(that.idCliente) : that.idCliente != null) return false;
+        if (idFuncionario != null ? !idFuncionario.equals(that.idFuncionario) : that.idFuncionario != null)
+            return false;
         if (tipo != null ? !tipo.equals(that.tipo) : that.tipo != null) return false;
 
         return true;
@@ -78,7 +83,7 @@ public class ClienteTelefoneEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (idCliente != null ? idCliente.hashCode() : 0);
+        result = 31 * result + (idFuncionario != null ? idFuncionario.hashCode() : 0);
         result = 31 * result + (tipo != null ? tipo.hashCode() : 0);
         result = 31 * result + ddd;
         result = 31 * result + telefone;

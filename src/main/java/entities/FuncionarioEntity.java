@@ -1,11 +1,11 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "funcionario", schema = "public", catalog = "bd1")
+@Table(name = "funcionario", schema = "public")
 public class FuncionarioEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
     private int id;
@@ -18,9 +18,9 @@ public class FuncionarioEntity {
     @Basic
     @Column(name = "tipo")
     private String tipo;
-    @Basic
-    @Column(name = "id_end")
-    private Integer idEnd;
+//    @Basic
+//    @Column(name = "id_end")
+//    private Integer idEnd;
 
     public int getId() {
         return id;
@@ -50,13 +50,13 @@ public class FuncionarioEntity {
         this.tipo = tipo;
     }
 
-    public Integer getIdEnd() {
-        return idEnd;
-    }
+//    public Integer getIdEnd() {
+//        return idEnd;
+//    }
 
-    public void setIdEnd(Integer idEnd) {
-        this.idEnd = idEnd;
-    }
+//    public void setIdEnd(Integer idEnd) {
+//        this.idEnd = idEnd;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -69,7 +69,7 @@ public class FuncionarioEntity {
         if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;
         if (sobrenome != null ? !sobrenome.equals(that.sobrenome) : that.sobrenome != null) return false;
         if (tipo != null ? !tipo.equals(that.tipo) : that.tipo != null) return false;
-        if (idEnd != null ? !idEnd.equals(that.idEnd) : that.idEnd != null) return false;
+//        if (idEnd != null ? !idEnd.equals(that.idEnd) : that.idEnd != null) return false;
 
         return true;
     }
@@ -80,7 +80,11 @@ public class FuncionarioEntity {
         result = 31 * result + (nome != null ? nome.hashCode() : 0);
         result = 31 * result + (sobrenome != null ? sobrenome.hashCode() : 0);
         result = 31 * result + (tipo != null ? tipo.hashCode() : 0);
-        result = 31 * result + (idEnd != null ? idEnd.hashCode() : 0);
+//        result = 31 * result + (idEnd != null ? idEnd.hashCode() : 0);
         return result;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

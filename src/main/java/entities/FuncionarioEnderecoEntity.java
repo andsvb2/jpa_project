@@ -1,14 +1,19 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "funcionario_endereco", schema = "public", catalog = "bd1")
+@Table(name = "funcionario_endereco", schema = "public")
 public class FuncionarioEnderecoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Basic
     @Column(name = "cep")
     private String cep;

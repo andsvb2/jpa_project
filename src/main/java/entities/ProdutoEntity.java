@@ -1,11 +1,11 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "produto", schema = "public", catalog = "bd1")
+@Table(name = "produto", schema = "public")
 public class ProdutoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -19,13 +19,13 @@ public class ProdutoEntity {
     private BigDecimal preco;
     @Basic
     @Column(name = "tipo")
-    private Object tipo;
+    private String tipo;
     @Basic
     @Column(name = "quantidade_unitaria")
     private float quantidadeUnitaria;
     @Basic
     @Column(name = "unidade_medida")
-    private Object unidadeMedida;
+    private String unidadeMedida;
 
     public int getId() {
         return id;
@@ -55,7 +55,7 @@ public class ProdutoEntity {
         return tipo;
     }
 
-    public void setTipo(Object tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -71,7 +71,7 @@ public class ProdutoEntity {
         return unidadeMedida;
     }
 
-    public void setUnidadeMedida(Object unidadeMedida) {
+    public void setUnidadeMedida(String unidadeMedida) {
         this.unidadeMedida = unidadeMedida;
     }
 

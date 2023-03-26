@@ -3,25 +3,24 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="default">
+    <persistence-unit name="jpa">
 
-        <class>entities.Funcionario</class>
-        <class>entities.Endereco</class>
-        <class>bd1.entities.AtendimentoEntity</class>
-        <class>bd1.entities.ClienteEntity</class>
-        <class>bd1.entities.ClienteEnderecoEntity</class>
-        <class>bd1.entities.ClienteTelefoneEntity</class>
-        <class>bd1.entities.CompraEntity</class>
-        <class>bd1.entities.CompraDetalhamentoEntity</class>
-        <class>bd1.entities.FuncionarioEntity</class>
-        <class>bd1.entities.FuncionarioEnderecoEntity</class>
-        <class>bd1.entities.FuncionarioTelefoneEntity</class>
-        <class>bd1.entities.ProdutoEntity</class>
+        <class>entities.AtendimentoEntity</class>
+        <class>entities.ClienteEntity</class>
+        <class>entities.ClienteEnderecoEntity</class>
+        <class>entities.ClienteTelefoneEntity</class>
+        <class>entities.CompraEntity</class>
+        <class>entities.CompraDetalhamentoEntity</class>
+        <class>entities.FuncionarioEntity</class>
+        <class>entities.FuncionarioEnderecoEntity</class>
+        <class>entities.FuncionarioTelefoneEntity</class>
+        <class>entities.ProdutoEntity</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/bd1"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/dac"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="bd1"/>
-            <property name="hibernate.connection.password" value="temp123"/>
+            <property name="hibernate.connection.username" value="dac"/>
+            <property name="hibernate.connection.password" value="dac"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>

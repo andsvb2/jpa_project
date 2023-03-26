@@ -1,9 +1,9 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "compra_detalhamento", schema = "public", catalog = "bd1")
+@Table(name = "compra_detalhamento", schema = "public")
 @IdClass(CompraDetalhamentoEntityPK.class)
 public class CompraDetalhamentoEntity {
     @Basic

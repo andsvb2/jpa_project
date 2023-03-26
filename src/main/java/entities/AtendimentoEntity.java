@@ -1,11 +1,11 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "atendimento", schema = "public", catalog = "bd1")
+@Table(name = "atendimento", schema = "public")
 @IdClass(AtendimentoEntityPK.class)
 public class AtendimentoEntity {
     @Basic

@@ -1,4 +1,4 @@
-package bd1.entities;
+package entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
