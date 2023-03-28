@@ -1,6 +1,6 @@
 package enums;
 
 public enum TipoTelefone {
-    TELEFONE,
-    CELULAR;
+    FIXO,
+    CELULAR
 }
