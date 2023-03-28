@@ -1,31 +1,30 @@
 package entities;
 
+import enums.TipoProduto;
+import enums.UnidadeMedida;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "produto", schema = "public")
+@Table(name = "produto")
 public class Produto {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
-    @Column(name = "nome")
+
     private String nome;
-    @Basic
-    @Column(name = "preco")
-    private BigDecimal preco;
-    @Basic
-    @Column(name = "tipo")
-    private String tipo;
-    @Basic
+
+    private Double preco;
+    @Column(name = "tipo_produto")
+    @Enumerated(EnumType.STRING)
+    private TipoProduto tipo;
+
     @Column(name = "quantidade_unitaria")
     private float quantidadeUnitaria;
-    @Basic
+
     @Column(name = "unidade_medida")
-    private String unidadeMedida;
+    @Enumerated(EnumType.STRING)
+    private UnidadeMedida unidadeMedida;
 
     public int getId() {
         return id;
@@ -43,11 +42,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public BigDecimal getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
@@ -55,7 +54,7 @@ public class Produto {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoProduto tipo) {
         this.tipo = tipo;
     }
 
@@ -71,7 +70,7 @@ public class Produto {
         return unidadeMedida;
     }
 
-    public void setUnidadeMedida(String unidadeMedida) {
+    public void setUnidadeMedida(UnidadeMedida unidadeMedida) {
         this.unidadeMedida = unidadeMedida;
     }
 
