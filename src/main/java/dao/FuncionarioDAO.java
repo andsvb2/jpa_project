@@ -16,7 +16,6 @@ public class FuncionarioDAO  extends DAO {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
-            em.persist(funcionario.getEndereco());
             em.persist(funcionario);
             transaction.commit();
         } catch (PersistenceException pe) {
