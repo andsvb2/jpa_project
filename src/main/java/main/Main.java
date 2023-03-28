@@ -1,36 +1,44 @@
 package main;
 
+import dao.FuncionarioDAO;
 import entities.EnderecoFuncionario;
 import entities.Funcionario;
 import enums.TipoFuncionario;
+import exceptions.JpaException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JpaException {
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        FuncionarioDAO funcDAO = new FuncionarioDAO();
 
-        EnderecoFuncionario endFunc = new EnderecoFuncionario();
-        endFunc.setBairro("Liberdade");
-        endFunc.setLogradouro("Rua da Paz");
-        endFunc.setNumero("56A");
-        endFunc.setComplemento("Térreo");
-        endFunc.setCep("89875-096");
+        try {
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
+            EntityManager em = emf.createEntityManager();
 
-        Funcionario func1 = new Funcionario();
-        func1.setNome("João");
-        func1.setSobrenome("Almeida");
-        func1.setTipo(TipoFuncionario.CAIXA);
-        func1.setEndereco(endFunc);
+            EnderecoFuncionario endFunc = new EnderecoFuncionario();
+            endFunc.setBairro("Liberdade");
+            endFunc.setLogradouro("Rua da Paz");
+            endFunc.setNumero("56A");
+            endFunc.setComplemento("Térreo");
+            endFunc.setCep("89875-096");
 
-        entityManager.getTransaction().begin();
-        entityManager.persist(endFunc);
-        entityManager.persist(func1);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+            Funcionario func1 = new Funcionario();
+            func1.setNome("João");
+            func1.setSobrenome("Almeida");
+            func1.setTipo(TipoFuncionario.CAIXA);
+            func1.setEndereco(endFunc);
+            funcDAO.save(func1);
+        } finally {
+            funcDAO.close();
+        }
+
+
+
+
 
     }
 }
