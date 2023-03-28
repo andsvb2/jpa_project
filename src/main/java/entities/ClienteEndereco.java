@@ -3,8 +3,8 @@ package entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "funcionario_endereco", schema = "public")
-public class FuncionarioEnderecoEntity {
+@Table(name = "cliente_endereco", schema = "public")
+public class ClienteEndereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -79,7 +79,7 @@ public class FuncionarioEnderecoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FuncionarioEnderecoEntity that = (FuncionarioEnderecoEntity) o;
+        ClienteEndereco that = (ClienteEndereco) o;
 
         if (id != that.id) return false;
         if (cep != null ? !cep.equals(that.cep) : that.cep != null) return false;

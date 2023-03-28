@@ -3,24 +3,23 @@ package entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "funcionario", schema = "public")
-public class FuncionarioEntity {
+@Table(name = "funcionario"")
+public class Funcionario {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
-    private int id;
-    @Basic
-    @Column(name = "nome")
+    private Integer id;
+
     private String nome;
-    @Basic
-    @Column(name = "sobrenome")
+
     private String sobrenome;
-    @Basic
-    @Column(name = "tipo")
+
     private String tipo;
-//    @Basic
-//    @Column(name = "id_end")
-//    private Integer idEnd;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "id_end_fk")
+    @Column(name = "id_end")
+    private Integer idEnd;
 
     public int getId() {
         return id;
@@ -63,7 +62,7 @@ public class FuncionarioEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FuncionarioEntity that = (FuncionarioEntity) o;
+        Funcionario that = (Funcionario) o;
 
         if (id != that.id) return false;
         if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;

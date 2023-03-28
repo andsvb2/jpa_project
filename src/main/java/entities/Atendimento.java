@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "atendimento", schema = "public")
 @IdClass(AtendimentoEntityPK.class)
-public class AtendimentoEntity {
+public class Atendimento {
     @Basic
     @Column(name = "id")
     private int id;
@@ -61,7 +61,7 @@ public class AtendimentoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AtendimentoEntity that = (AtendimentoEntity) o;
+        Atendimento that = (Atendimento) o;
 
         if (id != that.id) return false;
         if (clienteId != that.clienteId) return false;

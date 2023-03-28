@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "produto", schema = "public")
-public class ProdutoEntity {
+public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -80,7 +80,7 @@ public class ProdutoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProdutoEntity that = (ProdutoEntity) o;
+        Produto that = (Produto) o;
 
         if (id != that.id) return false;
         if (Float.compare(that.quantidadeUnitaria, quantidadeUnitaria) != 0) return false;

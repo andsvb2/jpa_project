@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "compra_detalhamento", schema = "public")
 @IdClass(CompraDetalhamentoEntityPK.class)
-public class CompraDetalhamentoEntity {
+public class CompraDetalhamento {
     @Basic
     @Column(name = "id")
     private int id;
@@ -58,7 +58,7 @@ public class CompraDetalhamentoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CompraDetalhamentoEntity that = (CompraDetalhamentoEntity) o;
+        CompraDetalhamento that = (CompraDetalhamento) o;
 
         if (id != that.id) return false;
         if (compraId != that.compraId) return false;

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "cliente", schema = "public")
-public class ClienteEntity {
+public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -82,7 +82,7 @@ public class ClienteEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ClienteEntity that = (ClienteEntity) o;
+        Cliente that = (Cliente) o;
 
         if (id != that.id) return false;
         if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;

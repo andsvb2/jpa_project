@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "compra", schema = "public")
 public class
-CompraEntity {
+Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -49,7 +49,7 @@ CompraEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CompraEntity that = (CompraEntity) o;
+        Compra that = (Compra) o;
 
         if (id != that.id) return false;
         if (idAtendimento != null ? !idAtendimento.equals(that.idAtendimento) : that.idAtendimento != null)

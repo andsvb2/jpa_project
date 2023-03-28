@@ -1,6 +1,6 @@
 package main;
 
-import entities.FuncionarioEntity;
+import entities.Funcionario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -11,7 +11,7 @@ public class Main {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        FuncionarioEntity func1 = new FuncionarioEntity();
+        Funcionario func1 = new Funcionario();
         func1.setNome("João");
         func1.setSobrenome("Almeida");
         func1.setTipo("Caixa");

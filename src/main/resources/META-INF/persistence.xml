@@ -5,16 +5,17 @@
              version="3.0">
     <persistence-unit name="jpa">
 
-        <class>entities.AtendimentoEntity</class>
-        <class>entities.ClienteEntity</class>
-        <class>entities.ClienteEnderecoEntity</class>
-        <class>entities.ClienteTelefoneEntity</class>
-        <class>entities.CompraEntity</class>
-        <class>entities.CompraDetalhamentoEntity</class>
-        <class>entities.FuncionarioEntity</class>
-        <class>entities.FuncionarioEnderecoEntity</class>
-        <class>entities.FuncionarioTelefoneEntity</class>
-        <class>entities.ProdutoEntity</class>
+        <class>entities.Atendimento</class>
+        <class>entities.Cliente</class>
+        <class>entities.ClienteEndereco</class>
+        <class>entities.ClienteTelefone</class>
+        <class>entities.Compra</class>
+        <class>entities.CompraDetalhamento</class>
+        <class>entities.Funcionario</class>
+        <class>entities.EnderecoFuncionario</class>
+        <class>entities.FuncionarioTelefone</class>
+        <class>entities.Produto</class>
+        <class>entities.Endereco</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/dac"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
