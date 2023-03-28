@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
+import utility.UtilityManager;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class FuncionarioDAO  extends DAO {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new PersistenciaJpaException("Ocorreu algum erro ao tentar salvar o usuário.", pe);
+            throw new PersistenciaJpaException(UtilityManager.TEXT_ERROR_PERSISTENCE, pe);
         } finally {
             em.close();
         }
@@ -42,7 +43,7 @@ public class FuncionarioDAO  extends DAO {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new PersistenciaJpaException("Ocorreu algum erro ao tentar atualizar o usuário.", pe);
+            throw new PersistenciaJpaException(UtilityManager.TEXT_ERROR_PERSISTENCE, pe);
         } finally {
             em.close();
         }
@@ -86,7 +87,7 @@ public class FuncionarioDAO  extends DAO {
         EntityManager em = getEntityManager();
         List<Funcionario> resultado = null;
         try {
-            TypedQuery<Funcionario> query = em.createQuery("SELECT f FROM Funcionario f", Funcionario.class);
+            TypedQuery<Funcionario> query = em.createQuery(UtilityManager.TEXT_JDBC_FUNCIONARIO, Funcionario.class);
             resultado = query.getResultList();
         } catch (PersistenceException pe) {
             pe.printStackTrace();

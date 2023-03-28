@@ -14,4 +14,5 @@ public class UtilityManager {
     public final static String TEXT_ERROR_PERSISTENCE = "Ocorreu algum erro ao tentar salvar o usuário.";
     public final static String TEXT_JDBC_FUNCIONARIO = "FROM Funcionario";
     public final static String TEXT_JDBC_ATENDIMENTO = "FROM Atendimento";
+    public final static String TEXT_JDBC_CLIENTE = "FROM Cliente";
 }
