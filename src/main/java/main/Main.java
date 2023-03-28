@@ -2,6 +2,7 @@ package main;
 
 import entities.EnderecoFuncionario;
 import entities.Funcionario;
+import enums.TipoFuncionario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -22,7 +23,7 @@ public class Main {
         Funcionario func1 = new Funcionario();
         func1.setNome("João");
         func1.setSobrenome("Almeida");
-        func1.setTipo("Caixa");
+        func1.setTipo(TipoFuncionario.CAIXA);
         func1.setEndereco(endFunc);
 
         entityManager.getTransaction().begin();

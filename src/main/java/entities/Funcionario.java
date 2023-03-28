@@ -1,5 +1,6 @@
 package entities;
 
+import enums.TipoFuncionario;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,7 +15,8 @@ public class Funcionario {
 
     private String sobrenome;
 
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoFuncionario tipo;
 
     @ManyToOne
     @JoinColumn(name = "id_end_func")
@@ -52,11 +54,11 @@ public class Funcionario {
         this.sobrenome = sobrenome;
     }
 
-    public String getTipo() {
+    public TipoFuncionario getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoFuncionario tipo) {
         this.tipo = tipo;
     }
 
