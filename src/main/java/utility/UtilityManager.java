@@ -15,4 +15,6 @@ public class UtilityManager {
     public final static String TEXT_JDBC_FUNCIONARIO = "FROM Funcionario";
     public final static String TEXT_JDBC_ATENDIMENTO = "FROM Atendimento";
     public final static String TEXT_JDBC_CLIENTE = "FROM Cliente";
+    public final static String TEXT_JDBC_CLIENTE_TELEFONE = "FROM ClienteTelefone";
+    public final static String TEXT_JDBC_COMPRA = "FROM Compra";
 }
