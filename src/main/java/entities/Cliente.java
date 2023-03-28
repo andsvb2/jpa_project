@@ -2,19 +2,15 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
-@Table(name = "cliente", schema = "public")
+@Table(name = "cliente")
 public class Cliente {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
     private int id;
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     @Basic
     @Column(name = "nome")
@@ -24,14 +20,15 @@ public class Cliente {
     private String sobrenome;
     @Basic
     @Column(name = "debitos")
-    private BigDecimal debitos;
+    private Double debitos;
 
     @Basic
     @Column(name = "id_telefone")
     private Integer idTelefone;
-    @Basic
-    @Column(name = "id_end")
-    private Integer idEnd;
+
+    @OneToMany
+    @Column(name = "enderecos_cliente")
+    private List<EnderecoCliente> enderecosCliente;
 
     public int getId() {
         return id;
@@ -53,7 +50,7 @@ public class Cliente {
         this.sobrenome = sobrenome;
     }
 
-    public BigDecimal getDebitos() {
+    public Double getDebitos() {
         return debitos;
     }
 
@@ -65,16 +62,20 @@ public class Cliente {
         this.idTelefone = idTelefone;
     }
 
-    public void setDebitos(BigDecimal debitos) {
+    public void setDebitos(Double debitos) {
         this.debitos = debitos;
     }
 
-    public Integer getIdEnd() {
-        return idEnd;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setIdEnd(Integer idEnd) {
-        this.idEnd = idEnd;
+    public List<EnderecoCliente> getEnderecosCliente() {
+        return enderecosCliente;
+    }
+
+    public void setEnderecosCliente(List<EnderecoCliente> enderecosCliente) {
+        this.enderecosCliente = enderecosCliente;
     }
 
     @Override
@@ -88,7 +89,7 @@ public class Cliente {
         if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;
         if (sobrenome != null ? !sobrenome.equals(that.sobrenome) : that.sobrenome != null) return false;
         if (debitos != null ? !debitos.equals(that.debitos) : that.debitos != null) return false;
-        if (idEnd != null ? !idEnd.equals(that.idEnd) : that.idEnd != null) return false;
+        if (enderecosCliente != null ? !enderecosCliente.equals(that.enderecosCliente) : that.enderecosCliente != null) return false;
 
         return true;
     }
@@ -99,7 +100,7 @@ public class Cliente {
         result = 31 * result + (nome != null ? nome.hashCode() : 0);
         result = 31 * result + (sobrenome != null ? sobrenome.hashCode() : 0);
         result = 31 * result + (debitos != null ? debitos.hashCode() : 0);
-        result = 31 * result + (idEnd != null ? idEnd.hashCode() : 0);
+        result = 31 * result + (enderecosCliente != null ? enderecosCliente.hashCode() : 0);
         return result;
     }
 }

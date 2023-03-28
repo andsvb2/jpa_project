@@ -71,7 +71,7 @@ public class ClienteDAO extends DAO{
         return resClintes;
     }
 
-    public void save() throws PersistenceException {
+    public void save(Cliente cliente) throws PersistenceException {
         EntityTransaction entityTransaction = UtilityManager.entityManager.getTransaction();
         entityTransaction.begin();
         try {
