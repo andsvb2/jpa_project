@@ -10,6 +10,7 @@ public class MainList {
         List<Funcionario> funcionarioList = listar();
         for(Funcionario f : funcionarioList)
             System.out.println(f.getNome());
+
     }
     public static List<Funcionario> listar() {
         String jpql = "FROM Funcionario f";
