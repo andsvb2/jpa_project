@@ -8,6 +8,7 @@ public class MainDelete {
         Funcionario funcionario = (Funcionario) MainUpdate.searchByID(1);
         MainUpdate.entityManager.remove(funcionario);
         MainUpdate.entityManager.getTransaction().commit();
+
     }
 
 }
