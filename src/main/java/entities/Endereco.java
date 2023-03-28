@@ -5,8 +5,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
+import java.io.Serializable;
+
 @MappedSuperclass
-public class Endereco {
+public class Endereco  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -6,10 +6,10 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "endereco_funcionario")
-public class EnderecoFuncionario extends Endereco implements Serializable {
+public class EnderecoFuncionario extends Endereco {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    @OneToMany(mappedBy = "id_end")
+    @Column(name = "id_end_func")
     private Integer id;
 
 }

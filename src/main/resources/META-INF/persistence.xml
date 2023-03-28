@@ -7,7 +7,7 @@
 
         <class>entities.Atendimento</class>
         <class>entities.Cliente</class>
-        <class>entities.ClienteEndereco</class>
+        <class>entities.EnderecoCliente</class>
         <class>entities.ClienteTelefone</class>
         <class>entities.Compra</class>
         <class>entities.CompraDetalhamento</class>

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cliente_endereco", schema = "public")
-public class ClienteEndereco {
+public class EnderecoCliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -79,7 +79,7 @@ public class ClienteEndereco {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ClienteEndereco that = (ClienteEndereco) o;
+        EnderecoCliente that = (EnderecoCliente) o;
 
         if (id != that.id) return false;
         if (cep != null ? !cep.equals(that.cep) : that.cep != null) return false;

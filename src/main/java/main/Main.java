@@ -1,5 +1,6 @@
 package main;
 
+import entities.EnderecoFuncionario;
 import entities.Funcionario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -11,35 +12,24 @@ public class Main {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+        EnderecoFuncionario endFunc = new EnderecoFuncionario();
+        endFunc.setBairro("Liberdade");
+        endFunc.setLogradouro("Rua da Paz");
+        endFunc.setNumero("56A");
+        endFunc.setComplemento("Térreo");
+        endFunc.setCep("89875-096");
+
         Funcionario func1 = new Funcionario();
         func1.setNome("João");
         func1.setSobrenome("Almeida");
         func1.setTipo("Caixa");
-//        ClienteEnderecoEntity clienteEnderecoEntity = new ClienteEnderecoEntity();
-//        clienteEnderecoEntity.setCep("00000000");
-//        clienteEnderecoEntity.setBairro("Centro");
-//        clienteEnderecoEntity.setComplemento("Casa");
-//        clienteEnderecoEntity.setNumero("00");
-//        clienteEnderecoEntity.setLogradouro("Aonde haja sol");
+        func1.setEndereco(endFunc);
 
         entityManager.getTransaction().begin();
+        entityManager.persist(endFunc);
         entityManager.persist(func1);
         entityManager.getTransaction().commit();
         entityManager.close();
-//
-//        ClienteTelefoneEntity clienteTelefone = new ClienteTelefoneEntity();
-//        clienteTelefone.setDdd(81);
-//        clienteTelefone.setTelefone(999999999);
-//        clienteTelefone.setTipo(TipoTelefone.CELULAR);
-//        ClienteEntity cliente = new ClienteEntity();
-//        cliente.setIdEnd(clienteEnderecoEntity.getId());
-//        cliente.setDebitos(new BigDecimal(566.00));
-//        cliente.setNome("fulano");
-//        cliente.setSobrenome("de tal");
-//
-//        clienteTelefone.setIdCliente(cliente.getId());
-//        cliente.setIdTelefone(clienteTelefone.getIdCliente());
-
 
     }
 }
