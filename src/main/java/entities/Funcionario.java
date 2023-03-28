@@ -3,6 +3,8 @@ package entities;
 import enums.TipoFuncionario;
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "funcionario")
 public class Funcionario {
@@ -18,7 +20,7 @@ public class Funcionario {
     @Enumerated(EnumType.STRING)
     private TipoFuncionario tipo;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_end_func")
     private EnderecoFuncionario endereco;
 
@@ -69,11 +71,11 @@ public class Funcionario {
 
         Funcionario that = (Funcionario) o;
 
-        if (id != that.id) return false;
-        if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;
-        if (sobrenome != null ? !sobrenome.equals(that.sobrenome) : that.sobrenome != null) return false;
-        if (tipo != null ? !tipo.equals(that.tipo) : that.tipo != null) return false;
-        if (endereco != null ? !endereco.equals(that.endereco) : that.endereco != null) return false;
+        if (!Objects.equals(id, that.id)) return false;
+        if (!Objects.equals(nome, that.nome)) return false;
+        if (!Objects.equals(sobrenome, that.sobrenome)) return false;
+        if (!Objects.equals(tipo, that.tipo)) return false;
+        if (!Objects.equals(endereco, that.endereco)) return false;
 
         return true;
     }

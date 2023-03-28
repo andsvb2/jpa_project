@@ -10,7 +10,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     private String nome;
 
@@ -98,7 +98,7 @@ public class Produto {
         result = 31 * result + (nome != null ? nome.hashCode() : 0);
         result = 31 * result + (preco != null ? preco.hashCode() : 0);
         result = 31 * result + (tipo != null ? tipo.hashCode() : 0);
-        result = 31 * result + (quantidadeUnitaria != +0.0f ? Float.floatToIntBits(quantidadeUnitaria) : 0);
+        result = 31 * result + (quantidadeUnitaria != 0.0f ? Float.floatToIntBits(quantidadeUnitaria) : 0);
         result = 31 * result + (unidadeMedida != null ? unidadeMedida.hashCode() : 0);
         return result;
     }
