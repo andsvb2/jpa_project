@@ -20,6 +20,21 @@ public class Funcionario {
     @Enumerated(EnumType.STRING)
     private TipoFuncionario tipo;
 
+    @OneToOne
+    @JoinColumn(name = "funcionario_telefone_id")
+    private FuncionarioTelefone telefone;
+
+
+    @OneToOne
+    @JoinColumn(name = "funcionario_telefone_id")
+    public FuncionarioTelefone getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(FuncionarioTelefone telefone) {
+        this.telefone = telefone;
+    }
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_end_func")
     private EnderecoFuncionario endereco;

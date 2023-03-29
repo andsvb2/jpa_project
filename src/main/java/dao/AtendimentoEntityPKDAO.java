@@ -32,7 +32,7 @@ public class AtendimentoEntityPKDAO extends DAO{
         EntityTransaction entityTransaction = UtilityManager.entityManager.getTransaction();
         entityTransaction.begin();
         try {
-            atendimentoEntityPK = UtilityManager.entityManager.find(AtendimentoEntityPK.class, atendimentoEntityPK.getId());
+            atendimentoEntityPK = UtilityManager.entityManager.find(AtendimentoEntityPK.class, atendimentoEntityPK.getDataAtendimento());
             UtilityManager.entityManager.remove(atendimentoEntityPK);
             entityTransaction.commit();
         }catch (PersistenceException pe) {

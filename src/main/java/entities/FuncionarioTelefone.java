@@ -4,42 +4,31 @@ import enums.TipoTelefone;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "funcionario_telefone", schema = "public")
+@Table(name = "funcionario_telefone")
 public class FuncionarioTelefone {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
-    private int id;
-    @Basic
-    @Column(name = "id_funcionario")
-    private Integer idFuncionario;
-    @Basic
-    @Column(name = "tipo")
+    private Integer id;
+
+    @Enumerated(EnumType.STRING)
     private TipoTelefone tipo;
     @Basic
     @Column(name = "ddd")
-    private int ddd;
+    private Integer ddd;
     @Basic
     @Column(name = "telefone")
-    private int telefone;
+    private Integer telefone;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Integer getIdFuncionario() {
-        return idFuncionario;
-    }
-
-    public void setIdFuncionario(Integer idFuncionario) {
-        this.idFuncionario = idFuncionario;
-    }
-
-    public Object getTipo() {
+    public TipoTelefone getTipo() {
         return tipo;
     }
 
@@ -47,19 +36,19 @@ public class FuncionarioTelefone {
         this.tipo = tipo;
     }
 
-    public int getDdd() {
+    public Integer getDdd() {
         return ddd;
     }
 
-    public void setDdd(int ddd) {
+    public void setDdd(Integer ddd) {
         this.ddd = ddd;
     }
 
-    public int getTelefone() {
+    public Integer getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(Integer telefone) {
         this.telefone = telefone;
     }
 
@@ -73,8 +62,6 @@ public class FuncionarioTelefone {
         if (id != that.id) return false;
         if (ddd != that.ddd) return false;
         if (telefone != that.telefone) return false;
-        if (idFuncionario != null ? !idFuncionario.equals(that.idFuncionario) : that.idFuncionario != null)
-            return false;
         if (tipo != null ? !tipo.equals(that.tipo) : that.tipo != null) return false;
 
         return true;
@@ -83,7 +70,6 @@ public class FuncionarioTelefone {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (idFuncionario != null ? idFuncionario.hashCode() : 0);
         result = 31 * result + (tipo != null ? tipo.hashCode() : 0);
         result = 31 * result + ddd;
         result = 31 * result + telefone;

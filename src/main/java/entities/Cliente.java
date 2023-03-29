@@ -2,15 +2,13 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "cliente")
 public class Cliente {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Basic
     @Column(name = "nome")
@@ -22,15 +20,15 @@ public class Cliente {
     @Column(name = "debitos")
     private Double debitos;
 
-    @Basic
-    @Column(name = "id_telefone")
-    private Integer idTelefone;
+//    @OneToOne
+//    @JoinColumn(name = "funcionario_telefone_id")
+//    private FuncionarioTelefone idTelefone;
 
-    @OneToMany
-    @Column(name = "enderecos_cliente")
-    private List<EnderecoCliente> enderecosCliente;
+    @OneToOne
+    @JoinColumn(name = "id_end_cliente")
+    private EnderecoCliente enderecoCliente;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -54,28 +52,28 @@ public class Cliente {
         return debitos;
     }
 
-    public Integer getIdTelefone() {
-        return idTelefone;
-    }
+//    public FuncionarioTelefone getIdTelefone() {
+//        return idTelefone;
+//    }
 
-    public void setIdTelefone(Integer idTelefone) {
-        this.idTelefone = idTelefone;
-    }
+//    public void setIdTelefone(FuncionarioTelefone idTelefone) {
+//        this.idTelefone = idTelefone;
+//    }
 
     public void setDebitos(Double debitos) {
         this.debitos = debitos;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public List<EnderecoCliente> getEnderecosCliente() {
-        return enderecosCliente;
+    public EnderecoCliente getEnderecoCliente() {
+        return enderecoCliente;
     }
 
-    public void setEnderecosCliente(List<EnderecoCliente> enderecosCliente) {
-        this.enderecosCliente = enderecosCliente;
+    public void setEnderecoCliente(EnderecoCliente enderecosCliente) {
+        this.enderecoCliente = enderecosCliente;
     }
 
     @Override
@@ -89,7 +87,7 @@ public class Cliente {
         if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;
         if (sobrenome != null ? !sobrenome.equals(that.sobrenome) : that.sobrenome != null) return false;
         if (debitos != null ? !debitos.equals(that.debitos) : that.debitos != null) return false;
-        if (enderecosCliente != null ? !enderecosCliente.equals(that.enderecosCliente) : that.enderecosCliente != null) return false;
+        if (enderecoCliente != null ? !enderecoCliente.equals(that.enderecoCliente) : that.enderecoCliente != null) return false;
 
         return true;
     }
@@ -100,7 +98,7 @@ public class Cliente {
         result = 31 * result + (nome != null ? nome.hashCode() : 0);
         result = 31 * result + (sobrenome != null ? sobrenome.hashCode() : 0);
         result = 31 * result + (debitos != null ? debitos.hashCode() : 0);
-        result = 31 * result + (enderecosCliente != null ? enderecosCliente.hashCode() : 0);
+        result = 31 * result + (enderecoCliente != null ? enderecoCliente.hashCode() : 0);
         return result;
     }
 }

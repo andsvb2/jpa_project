@@ -2,6 +2,7 @@ package dao;
 
 import entities.Cliente;
 import exceptions.PersistenciaJpaException;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
@@ -72,17 +73,18 @@ public class ClienteDAO extends DAO{
     }
 
     public void save(Cliente cliente) throws PersistenceException {
-        EntityTransaction entityTransaction = UtilityManager.entityManager.getTransaction();
-        entityTransaction.begin();
+        EntityManager em = getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
         try {
-            UtilityManager.entityManager.persist(this);
-            entityTransaction.commit();
+            em.persist(cliente);
+            transaction.commit();
         } catch (PersistenceException e) {
-            if (entityTransaction.isActive())
-                entityTransaction.rollback();
+            if (transaction.isActive())
+                transaction.rollback();
             throw new PersistenceException(UtilityManager.TEXT_ERROR_PERSISTENCE, e);
         } finally {
-            UtilityManager.entityManager.close();
+            em.close();
         }
 
     }

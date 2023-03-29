@@ -8,48 +8,48 @@ import jakarta.persistence.*;
 public class CompraDetalhamento {
     @Basic
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "compra_id")
-    private int compraId;
+    private Integer compraId;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "produto_id")
-    private int produtoId;
+    private Integer produtoId;
     @Basic
     @Column(name = "quantidade")
-    private short quantidade;
+    private Integer quantidade;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getCompraId() {
+    public Integer getCompraId() {
         return compraId;
     }
 
-    public void setCompraId(int compraId) {
+    public void setCompraId(Integer compraId) {
         this.compraId = compraId;
     }
 
-    public int getProdutoId() {
+    public Integer getProdutoId() {
         return produtoId;
     }
 
-    public void setProdutoId(int produtoId) {
+    public void setProdutoId(Integer produtoId) {
         this.produtoId = produtoId;
     }
 
-    public short getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(short quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 

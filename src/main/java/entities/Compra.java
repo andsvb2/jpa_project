@@ -2,17 +2,15 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "compra", schema = "public")
 public class Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -21,9 +19,9 @@ public class Compra {
     private Integer idAtendimento;
     @Basic
     @Column(name = "total")
-    private BigDecimal total;
+    private Double total;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -35,11 +33,11 @@ public class Compra {
         this.idAtendimento = idAtendimento;
     }
 
-    public BigDecimal getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
